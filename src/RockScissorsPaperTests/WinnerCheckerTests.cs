@@ -13,7 +13,7 @@ namespace RockScissorsPaperTests
             WinnerChecker winnerChecker = new WinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(RSP.Paper, RSP.Rock);
+            var result = winnerChecker.Fight((int)RSP.Paper, (int)RSP.Rock);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -26,7 +26,7 @@ namespace RockScissorsPaperTests
             WinnerChecker winnerChecker = new WinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(RSP.Paper, RSP.Paper);
+            var result = winnerChecker.Fight((int)RSP.Paper, (int)RSP.Paper);
 
             // Assert
             Assert.Equal(Result.Draw, result);
@@ -39,8 +39,8 @@ namespace RockScissorsPaperTests
             WinnerChecker winnerChecker = new WinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(RSP.Paper, RSP.Scissors);
-
+            var result = winnerChecker.Fight((int)RSP.Paper, (int)RSP.Scissors);
+          
             // Assert
             Assert.Equal(Result.Winner2, result);
         }
@@ -52,7 +52,7 @@ namespace RockScissorsPaperTests
             WinnerChecker winnerChecker = new WinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(RSP.Rock, RSP.Paper);
+            var result = winnerChecker.Fight((int)RSP.Rock, (int)RSP.Paper);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
@@ -65,7 +65,7 @@ namespace RockScissorsPaperTests
             WinnerChecker winnerChecker = new WinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(RSP.Rock, RSP.Rock);
+            var result = winnerChecker.Fight((int)RSP.Rock, (int)RSP.Rock);
 
             // Assert
             Assert.Equal(Result.Draw, result);
@@ -77,7 +77,7 @@ namespace RockScissorsPaperTests
             WinnerChecker winnerChecker = new WinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(RSP.Rock, RSP.Scissors);
+            var result = winnerChecker.Fight((int)RSP.Rock, (int)RSP.Scissors);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -89,7 +89,7 @@ namespace RockScissorsPaperTests
             WinnerChecker winnerChecker = new WinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(RSP.Scissors, RSP.Paper);
+            var result = winnerChecker.Fight((int)RSP.Scissors, (int)RSP.Paper);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -101,7 +101,7 @@ namespace RockScissorsPaperTests
             WinnerChecker winnerChecker = new WinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(RSP.Scissors, RSP.Rock);
+            var result = winnerChecker.Fight((int)RSP.Scissors, (int)RSP.Rock);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
@@ -113,7 +113,7 @@ namespace RockScissorsPaperTests
             WinnerChecker winnerChecker = new WinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(RSP.Scissors, RSP.Scissors);
+            var result = winnerChecker.Fight((int)RSP.Scissors, (int)RSP.Scissors);
 
             // Assert
             Assert.Equal(Result.Draw, result);
@@ -125,7 +125,7 @@ namespace RockScissorsPaperTests
             WinnerChecker winnerChecker = new WinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(RSP.Rock, (RSP)10);
+            var result = winnerChecker.Fight((int)RSP.Rock, 10);
 
             // Assert
             Assert.Equal(Result.Draw, result);
@@ -138,7 +138,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Lizard, ModifiedRSP.Lizard);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Lizard, (int)ModifiedRSP.Lizard);
 
             // Assert
             Assert.Equal(Result.Draw, result);
@@ -151,7 +151,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Lizard, ModifiedRSP.Paper);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Lizard, (int)ModifiedRSP.Paper);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -164,7 +164,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Lizard, ModifiedRSP.Rock);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Lizard, (int)ModifiedRSP.Rock);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
@@ -177,7 +177,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Lizard, ModifiedRSP.Scissors);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Lizard, (int)ModifiedRSP.Scissors);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
@@ -190,7 +190,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Lizard, ModifiedRSP.Spock);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Lizard, (int)ModifiedRSP.Spock);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -202,7 +202,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Paper, ModifiedRSP.Lizard);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Paper, (int)ModifiedRSP.Lizard);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
@@ -214,7 +214,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Paper, ModifiedRSP.Paper);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Paper, (int)ModifiedRSP.Paper);
 
             // Assert
             Assert.Equal(Result.Draw, result);
@@ -226,7 +226,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Paper, ModifiedRSP.Rock);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Paper, (int)ModifiedRSP.Rock);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -238,7 +238,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Paper, ModifiedRSP.Scissors);
+            var result = winnerChecker.Fight((int)odifiedRSP.Paper, (int)ModifiedRSP.Scissors);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
@@ -250,7 +250,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Paper, ModifiedRSP.Spock);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Paper, (int)ModifiedRSP.Spock);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -262,7 +262,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Rock, ModifiedRSP.Lizard);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Rock, (int)ModifiedRSP.Lizard);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -274,7 +274,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Rock, ModifiedRSP.Paper);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Rock, (int)ModifiedRSP.Paper);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
@@ -286,7 +286,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Rock, ModifiedRSP.Rock);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Rock, (int)ModifiedRSP.Rock);
 
             // Assert
             Assert.Equal(Result.Draw, result);
@@ -298,7 +298,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Rock, ModifiedRSP.Scissors);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Rock, (int)ModifiedRSP.Scissors);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -310,7 +310,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Rock, ModifiedRSP.Spock);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Rock, (int)ModifiedRSP.Spock);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
@@ -322,7 +322,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Scissors, ModifiedRSP.Lizard);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Scissors, (int)ModifiedRSP.Lizard);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -334,7 +334,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Scissors, ModifiedRSP.Paper);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Scissors, (int)ModifiedRSP.Paper);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -346,7 +346,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Scissors, ModifiedRSP.Rock);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Scissors, (int)ModifiedRSP.Rock);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
@@ -358,7 +358,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Scissors, ModifiedRSP.Scissors);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Scissors, (int)ModifiedRSP.Scissors);
 
             // Assert
             Assert.Equal(Result.Draw, result);
@@ -370,7 +370,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Scissors, ModifiedRSP.Spock);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Scissors, (int)ModifiedRSP.Spock);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
@@ -382,7 +382,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Spock, ModifiedRSP.Lizard);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Spock, (int)ModifiedRSP.Lizard);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
@@ -394,7 +394,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Spock, ModifiedRSP.Paper);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Spock, (int)ModifiedRSP.Paper);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
@@ -406,7 +406,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Spock, ModifiedRSP.Rock);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Spock, (int)ModifiedRSP.Rock);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -418,7 +418,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Spock, ModifiedRSP.Scissors);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Spock, (int)ModifiedRSP.Scissors);
 
             // Assert
             Assert.Equal(Result.Winner1, result);
@@ -430,7 +430,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Spock, ModifiedRSP.Spock);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Spock, (int)ModifiedRSP.Spock);
 
             // Assert
             Assert.Equal(Result.Draw, result);
@@ -442,11 +442,33 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight(ModifiedRSP.Rock, (ModifiedRSP)10);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Rock, 10);
 
             // Assert
             Assert.Equal(Result.Draw, result);
         }
-        
+
+        public void Test1_3()
+        {
+            // Arrange
+            WinCheckFabric winCheckFabric = new WinCheckFabric();
+
+            // Act
+            var result = winCheckFabric.Create(true);
+            // Assert
+            Assert.Equal(typeof(WinnerChecker), result.GetType());
+        }
+
+        [Fact]
+        public void Test2_3()
+        {
+            // Arrange
+            WinCheckFabric winCheckFabric = new WinCheckFabric();
+
+            // Act
+            var result = winCheckFabric.Create(false);
+            // Assert
+            Assert.Equal(typeof(ModifiedWinnerChecker), result.GetType());
+        }
     }
 }

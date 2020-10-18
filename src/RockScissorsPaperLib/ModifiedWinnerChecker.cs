@@ -3,11 +3,13 @@ using System;
 namespace RockScissorsPaperLib
 {
     public enum ModifiedRSP { Rock = 0, Scissors = 1, Paper = 2, Lizard = 3, Spock = 4 }
-    public class ModifiedWinnerChecker
+    public class ModifiedWinnerChecker : IWinCheck
     {
     
-        public Result Fight(ModifiedRSP player1, ModifiedRSP player2)
+        public Result Fight(int p1, int p2)
         {
+            ModifiedRSP player1 = (ModifiedRSP)p1;
+            ModifiedRSP player2 = (ModifiedRSP)p2;
             if ((int)player1 >= 0 && (int)player1 < 5 && (int)player2 >= 0 && (int)player2 < 5)
             {
                 if (player1 == player2)
