@@ -70,5 +70,17 @@ namespace RockScissorsPaperTests
             // Assert
             Assert.Equal(Result.Draw, result);
         }
+        [Fact]
+        public void Test6()
+        {
+            // Arrange
+            WinnerChecker winnerChecker = new WinnerChecker();
+
+            // Act
+            var result = winnerChecker.Fight(RSP.Rock, (RSP)10);
+
+            // Assert
+            Assert.Equal(Result.Draw, result);
+        }
     }
 }

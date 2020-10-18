@@ -11,7 +11,16 @@ namespace RockScissorsPaperLib
                 return Result.Draw;
             }
 
-            if ((player1 == ModifiedRSP.Paper && player2 == ModifiedRSP.Rock) || (player1 == ModifiedRSP.Rock && player2 == ModifiedRSP.Scissors) || (player1 == ModifiedRSP.Scissors && player2 == ModifiedRSP.Paper) || (player1 == ModifiedRSP.Scissors && player2 == ModifiedRSP.Lizard) || ())
+            if ((player1 == ModifiedRSP.Paper && player2 == ModifiedRSP.Rock) 
+            || (player1 == ModifiedRSP.Rock && player2 == ModifiedRSP.Scissors) 
+            || (player1 == ModifiedRSP.Scissors && player2 == ModifiedRSP.Paper) 
+            || (player1 == ModifiedRSP.Scissors && player2 == ModifiedRSP.Lizard) 
+            || (player1 == ModifiedRSP.Paper && player2 == ModifiedRSP.Spock)
+            || (player1 == ModifiedRSP.Rock && player2 == ModifiedRSP.Lizard)
+            || (player1 == ModifiedRSP.Lizard && player2 == ModifiedRSP.Paper)
+            || (player1 == ModifiedRSP.Lizard && player2 == ModifiedRSP.Spock)
+            || (player1 == ModifiedRSP.Spock && player2 == ModifiedRSP.Rock)
+            || (player1 == ModifiedRSP.Spock && player2 == ModifiedRSP.Scissors))
             {
                 return Result.Winner1;
             }
