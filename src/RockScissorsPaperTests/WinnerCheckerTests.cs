@@ -238,7 +238,7 @@ namespace RockScissorsPaperTests
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight((int)odifiedRSP.Paper, (int)ModifiedRSP.Scissors);
+            var result = winnerChecker.Fight((int)ModifiedRSP.Paper, (int)ModifiedRSP.Scissors);
 
             // Assert
             Assert.Equal(Result.Winner2, result);
