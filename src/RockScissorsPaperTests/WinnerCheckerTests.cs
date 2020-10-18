@@ -187,13 +187,24 @@ namespace RockScissorsPaperTests
         public void Test1_3()
         {
             // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
+            WinCheckFabric winCheckFabric = new WinCheckFabric();
 
             // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Spock, (int)ModifiedRSP.Scissors);
-
+            var result = winCheckFabric.Create(true);
             // Assert
-            Assert.Equal(Result.Winner1, result);
+            Assert.Equal(typeof(WinnerChecker), result.GetType());
+        }
+
+        [Fact]
+        public void Test2_3()
+        {
+            // Arrange
+            WinCheckFabric winCheckFabric = new WinCheckFabric();
+
+            // Act
+            var result = winCheckFabric.Create(false);
+            // Assert
+            Assert.Equal(typeof(ModifiedWinnerChecker), result.GetType());
         }
     }
 }
