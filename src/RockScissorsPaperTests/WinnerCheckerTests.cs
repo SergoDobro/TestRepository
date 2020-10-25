@@ -6,447 +6,68 @@ namespace RockScissorsPaperTests
 {
     public class WinnerCheckerTests
     {
-        [Fact]
-        public void Test1()
+        [Theory]
+        [InlineData(RSP.Paper, RSP.Rock, Result.Winner1)]
+        [InlineData(RSP.Paper, RSP.Paper, Result.Draw)]
+        [InlineData(RSP.Paper, RSP.Scissors, Result.Winner2)]
+        [InlineData(RSP.Rock, RSP.Paper, Result.Winner2)]
+        [InlineData(RSP.Rock, RSP.Rock, Result.Draw)]
+        [InlineData(RSP.Rock, RSP.Scissors, Result.Winner1)]
+        [InlineData(RSP.Scissors, RSP.Paper, Result.Winner1)]
+        [InlineData(RSP.Scissors, RSP.Rock, Result.Winner2)]
+        [InlineData(RSP.Scissors, RSP.Scissors, Result.Draw)]
+        [InlineData(RSP.Rock, (RSP)010, Result.Draw)]
+        public void Test(RSP player1, RSP player2, Result winner)
         {
             // Arrange
             WinnerChecker winnerChecker = new WinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight((int)RSP.Paper, (int)RSP.Rock);
+            var result = winnerChecker.Fight((int)player1, (int)player2);
 
             // Assert
-            Assert.Equal(Result.Winner1, result);
+            Assert.Equal(winner, result);
         }
 
-        [Fact]
-        public void Test2()
-        {
-            // Arrange
-            WinnerChecker winnerChecker = new WinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)RSP.Paper, (int)RSP.Paper);
-
-            // Assert
-            Assert.Equal(Result.Draw, result);
-        }
-
-        [Fact]
-        public void Test3()
-        {
-            // Arrange
-            WinnerChecker winnerChecker = new WinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)RSP.Paper, (int)RSP.Scissors);
-          
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-
-        [Fact]
-        public void Test4()
-        {
-            // Arrange
-            WinnerChecker winnerChecker = new WinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)RSP.Rock, (int)RSP.Paper);
-
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-
-        [Fact]
-        public void Test5()
-        {
-            // Arrange
-            WinnerChecker winnerChecker = new WinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)RSP.Rock, (int)RSP.Rock);
-
-            // Assert
-            Assert.Equal(Result.Draw, result);
-        }
-        [Fact]
-        public void Test6()
-        {
-            // Arrange
-            WinnerChecker winnerChecker = new WinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)RSP.Rock, (int)RSP.Scissors);
-
-            // Assert
-            Assert.Equal(Result.Winner1, result);
-        }
-        [Fact]
-        public void Test7()
-        {
-            // Arrange
-            WinnerChecker winnerChecker = new WinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)RSP.Scissors, (int)RSP.Paper);
-
-            // Assert
-            Assert.Equal(Result.Winner1, result);
-        }
-        [Fact]
-        public void Test8()
-        {
-            // Arrange
-            WinnerChecker winnerChecker = new WinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)RSP.Scissors, (int)RSP.Rock);
-
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-        [Fact]
-        public void Test9()
-        {
-            // Arrange
-            WinnerChecker winnerChecker = new WinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)RSP.Scissors, (int)RSP.Scissors);
-
-            // Assert
-            Assert.Equal(Result.Draw, result);
-        }
-        [Fact]
-        public void Test10()
-        {
-            // Arrange
-            WinnerChecker winnerChecker = new WinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)RSP.Rock, 10);
-
-            // Assert
-            Assert.Equal(Result.Draw, result);
-        }
-
-        [Fact]
-        public void Test1_2()
+        [Theory]
+        [InlineData(ModifiedRSP.Lizard, ModifiedRSP.Lizard, Result.Draw)]
+        [InlineData(ModifiedRSP.Lizard, ModifiedRSP.Paper, Result.Winner1)]
+        [InlineData(ModifiedRSP.Lizard, ModifiedRSP.Rock, Result.Winner2)]
+        [InlineData(ModifiedRSP.Lizard, ModifiedRSP.Scissors, Result.Winner2)]
+        [InlineData(ModifiedRSP.Lizard, ModifiedRSP.Spock, Result.Winner1)]
+        [InlineData(ModifiedRSP.Paper, ModifiedRSP.Lizard, Result.Winner2)]
+        [InlineData(ModifiedRSP.Paper, ModifiedRSP.Paper, Result.Draw)]
+        [InlineData(ModifiedRSP.Paper, ModifiedRSP.Rock, Result.Winner1)]
+        [InlineData(ModifiedRSP.Paper, ModifiedRSP.Scissors, Result.Winner2)]
+        [InlineData(ModifiedRSP.Paper, ModifiedRSP.Spock, Result.Winner1)]
+        [InlineData(ModifiedRSP.Rock, ModifiedRSP.Lizard, Result.Winner1)]
+        [InlineData(ModifiedRSP.Rock, ModifiedRSP.Paper, Result.Winner2)]
+        [InlineData(ModifiedRSP.Rock, ModifiedRSP.Rock, Result.Draw)]
+        [InlineData(ModifiedRSP.Rock, ModifiedRSP.Scissors, Result.Winner1)]
+        [InlineData(ModifiedRSP.Rock, ModifiedRSP.Spock, Result.Winner2)]
+        [InlineData(ModifiedRSP.Scissors, ModifiedRSP.Lizard, Result.Winner1)]
+        [InlineData(ModifiedRSP.Scissors, ModifiedRSP.Paper, Result.Winner1)]
+        [InlineData(ModifiedRSP.Scissors, ModifiedRSP.Rock, Result.Winner2)]
+        [InlineData(ModifiedRSP.Scissors, ModifiedRSP.Scissors, Result.Draw)]
+        [InlineData(ModifiedRSP.Scissors, ModifiedRSP.Spock, Result.Winner2)]
+        [InlineData(ModifiedRSP.Spock, ModifiedRSP.Lizard, Result.Winner2)]
+        [InlineData(ModifiedRSP.Spock, ModifiedRSP.Paper, Result.Winner2)]
+        [InlineData(ModifiedRSP.Spock, ModifiedRSP.Rock, Result.Winner1)]
+        [InlineData(ModifiedRSP.Spock, ModifiedRSP.Scissors, Result.Winner1)]
+        [InlineData(ModifiedRSP.Spock, ModifiedRSP.Spock, Result.Draw)]
+        [InlineData(ModifiedRSP.Rock, (ModifiedRSP)10, Result.Draw)]
+        public void Test2(ModifiedRSP player1,  ModifiedRSP player2, Result winner)
         {
             // Arrange
             ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
 
             // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Lizard, (int)ModifiedRSP.Lizard);
+            var result = winnerChecker.Fight((int)player1, (int)player2);
 
             // Assert
-            Assert.Equal(Result.Draw, result);
+            Assert.Equal(winner, result);
         }
 
-        [Fact]
-        public void Test2_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Lizard, (int)ModifiedRSP.Paper);
-
-            // Assert
-            Assert.Equal(Result.Winner1, result);
-        }
-
-        [Fact]
-        public void Test3_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Lizard, (int)ModifiedRSP.Rock);
-
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-
-        [Fact]
-        public void Test4_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Lizard, (int)ModifiedRSP.Scissors);
-
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-
-        [Fact]
-        public void Test5_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Lizard, (int)ModifiedRSP.Spock);
-
-            // Assert
-            Assert.Equal(Result.Winner1, result);
-        }
-        [Fact]
-        public void Test6_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Paper, (int)ModifiedRSP.Lizard);
-
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-        [Fact]
-        public void Test7_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Paper, (int)ModifiedRSP.Paper);
-
-            // Assert
-            Assert.Equal(Result.Draw, result);
-        }
-        [Fact]
-        public void Test8_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Paper, (int)ModifiedRSP.Rock);
-
-            // Assert
-            Assert.Equal(Result.Winner1, result);
-        }
-        [Fact]
-        public void Test9_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Paper, (int)ModifiedRSP.Scissors);
-
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-        [Fact]
-        public void Test10_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Paper, (int)ModifiedRSP.Spock);
-
-            // Assert
-            Assert.Equal(Result.Winner1, result);
-        }
-        [Fact]
-        public void Test11_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Rock, (int)ModifiedRSP.Lizard);
-
-            // Assert
-            Assert.Equal(Result.Winner1, result);
-        }
-        [Fact]
-        public void Test12_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Rock, (int)ModifiedRSP.Paper);
-
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-        [Fact]
-        public void Test13_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Rock, (int)ModifiedRSP.Rock);
-
-            // Assert
-            Assert.Equal(Result.Draw, result);
-        }
-        [Fact]
-        public void Test14_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Rock, (int)ModifiedRSP.Scissors);
-
-            // Assert
-            Assert.Equal(Result.Winner1, result);
-        }
-        [Fact]
-        public void Test15_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Rock, (int)ModifiedRSP.Spock);
-
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-        [Fact]
-        public void Test16_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Scissors, (int)ModifiedRSP.Lizard);
-
-            // Assert
-            Assert.Equal(Result.Winner1, result);
-        }
-        [Fact]
-        public void Test17_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Scissors, (int)ModifiedRSP.Paper);
-
-            // Assert
-            Assert.Equal(Result.Winner1, result);
-        }
-        [Fact]
-        public void Test18_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Scissors, (int)ModifiedRSP.Rock);
-
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-        [Fact]
-        public void Test19_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Scissors, (int)ModifiedRSP.Scissors);
-
-            // Assert
-            Assert.Equal(Result.Draw, result);
-        }
-        [Fact]
-        public void Test20_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Scissors, (int)ModifiedRSP.Spock);
-
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-        [Fact]
-        public void Test21_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Spock, (int)ModifiedRSP.Lizard);
-
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-        [Fact]
-        public void Test22_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Spock, (int)ModifiedRSP.Paper);
-
-            // Assert
-            Assert.Equal(Result.Winner2, result);
-        }
-        [Fact]
-        public void Test23_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Spock, (int)ModifiedRSP.Rock);
-
-            // Assert
-            Assert.Equal(Result.Winner1, result);
-        }
-        [Fact]
-        public void Test24_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Spock, (int)ModifiedRSP.Scissors);
-
-            // Assert
-            Assert.Equal(Result.Winner1, result);
-        }
-        [Fact]
-        public void Test25_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Spock, (int)ModifiedRSP.Spock);
-
-            // Assert
-            Assert.Equal(Result.Draw, result);
-        }
-        [Fact]
-        public void Test26_2()
-        {
-            // Arrange
-            ModifiedWinnerChecker winnerChecker = new ModifiedWinnerChecker();
-
-            // Act
-            var result = winnerChecker.Fight((int)ModifiedRSP.Rock, 10);
-
-            // Assert
-            Assert.Equal(Result.Draw, result);
-        }
 
         public void Test1_3()
         {
